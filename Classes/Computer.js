@@ -53,7 +53,7 @@ function Computer() {
         view.updateComputer();
     };
     this.getThreadCost = function() {
-        return precision2(Math.pow(1.2, this.threads)*20);
+        return precision2(Math.pow(1.08, this.threads)*20);
     };
 
     this.buySpeed = function() {
@@ -65,7 +65,7 @@ function Computer() {
         view.updateComputer();
     };
     this.getSpeedCost = function() {
-        return precision2(Math.pow(1.2, this.speed)*20);
+        return precision2(Math.pow(1.08, this.speed)*20);
     };
 
     this.addThread = function(dataPos, numAdding) {
@@ -141,9 +141,9 @@ function Computer() {
         },
         { //Build Robots
             currentTicks: 0,
-            ticksNeeded: 4000,
+            ticksNeeded: 400,
             threads: 0,
-            cost:.004,
+            cost:0.01,
             costType:"metal",
             finish:function() { game.robots.gainRobots(1) },
             showing: function() { return game.robots.unlocked; },
@@ -153,7 +153,7 @@ function Computer() {
             currentTicks: 0,
             ticksNeeded: 8000,
             threads: 0,
-            cost:10,
+            cost:1.4,
             costType:"science",
             finish:function() { game.robots.gainStorage(15); this.cost = precision3(1.2*(this.completions+2 )+ Math.pow(this.completions, 1.2)); this.ticksNeeded+=2000; },
             showing: function() { return game.robots.unlocked; }

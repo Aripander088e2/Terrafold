@@ -69,7 +69,7 @@ function Robots() {
             game.cash -= 3000;
             this.unlocked = 1;
             view.checkRobotsUnlocked();
-            this.gainRobots(1);
+            this.gainRobots(5);
         }
         view.updateComputer();
         view.updateRobots();
@@ -108,14 +108,14 @@ function Robots() {
     };
 
     this.mineOre = function(mult) {
-        game.robots.ore += game.robots.mines / 100 * mult;
+        game.robots.ore += game.robots.mines / 70 * mult;
     };
 
     this.smeltOre = function(mult) {
         if(game.wood >= 5 * mult && this.ore >= mult && game.oxygen >= mult*1000) {
             game.wood -= 5 * mult;
             this.ore -= mult;
-            game.oxygen -= 1000*mult;
+            game.oxygen -= 700*mult;
             game.metal += mult;
         }
     };

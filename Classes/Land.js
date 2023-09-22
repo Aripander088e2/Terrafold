@@ -12,7 +12,7 @@ function Land(totalLand) {
     };
 
     this.turnLandToSoil = function() {
-        this.convertedLand = this.water / 1000;
+        this.convertedLand = this.water / 700;
         if(this.land < this.convertedLand) {
             this.convertedLand = this.land;
         }
@@ -22,7 +22,7 @@ function Land(totalLand) {
     };
 
     this.transferWater = function() {
-        this.transferred = this.water / 1000;
+        this.transferred = this.water / 700;
         this.water -= this.transferred;
         return this.transferred;
     };

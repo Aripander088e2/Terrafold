@@ -10,7 +10,7 @@ function City() {
     this.houseBonus = 1;
 
     this.tick = function() {
-        this.foodEaten = this.people / 100;
+        this.foodEaten = this.people / 1000;
         if(this.foodEaten > game.farms.food) {
             this.starving = this.foodEaten - game.farms.food;
             this.foodEaten = game.farms.food;
@@ -18,7 +18,7 @@ function City() {
             this.starving = 0;
         }
         game.farms.food -= this.foodEaten;
-        this.popGrowth = (game.farms.food - this.people) / 1000 - this.starving / 100;
+        this.popGrowth = (game.farms.food - this.people) / 1000 - this.starving / 1000;
         this.people += this.popGrowth;
         this.updateHappiness();
         this.tickRatio();
@@ -31,8 +31,8 @@ function City() {
     };
 
     this.tickRatio = function() {
-        this.scienceDelta = this.people / 100 * (100 - this.scienceRatio) / 100 * this.happiness;
-        this.cashDelta = this.people / 100 * this.scienceRatio / 100 * this.happiness;
+        this.scienceDelta = this.people / 60 * (100 - this.scienceRatio) / 100 * this.happiness;
+        this.cashDelta = this.people / 60 * this.scienceRatio / 100 * this.happiness;
         game.science += this.scienceDelta;
         game.cash += this.cashDelta;
     };
